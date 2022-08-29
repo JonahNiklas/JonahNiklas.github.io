@@ -35,7 +35,14 @@ jobs:
         run: npm run lint:ts
       - name: Run styles lint and format check
         run: npm run lint:css
-
+      - name: "Hello world when it's Monday"
+        run: echo "Hello $FIRST_NAME, today is Monday!"
+        env:
+          FIRST_NAME: Jonah
+      - name: "Hello world when it's Monday"
+        run: echo "Hello, password is $SECRET!"
+        env:
+          SECRET: ${{secrets.PASSWORD}}
   deploy:
     needs: [test, build]
     runs-on: ubuntu-latest
